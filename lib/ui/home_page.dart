@@ -81,71 +81,87 @@ class _Home_pageState extends State<Home_page> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                width: widthApp * 0.4,
-                height: 90,
-                decoration: BoxDecoration(
-                  color: Colors.amber,
-                  boxShadow: shadow,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                ),
+              TextButton(
+                onPressed: () {
+                  // Navigator.of(context)
+                  //     .push(MaterialPageRoute(builder: (context) {
+                  //   return Surat_page();
+                  // }));
+                },
                 child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                          width: 80,
-                          child: Text(
-                            "Daftar Penduduk",
-                            softWrap: true,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16),
-                          )),
-                      Icon(
-                        Icons.people,
-                        size: 50,
-                        color: Colors.black26,
-                      ),
-                    ],
+                  width: widthApp * 0.4,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    boxShadow: shadow,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            width: 80,
+                            child: Text(
+                              "Daftar Penduduk",
+                              softWrap: true,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16),
+                            )),
+                        Icon(
+                          Icons.people,
+                          size: 50,
+                          color: Colors.black26,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              Container(
-                width: widthApp * 0.4,
-                height: 90,
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  boxShadow: shadow,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return Surat_page();
+                  }));
+                },
                 child: Container(
-                  padding: EdgeInsets.all(10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                          width: 80,
-                          child: Text(
-                            "Pengajuan Surat",
-                            softWrap: true,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16),
-                          )),
-                      Icon(
-                        Icons.file_copy,
-                        size: 50,
-                        color: Colors.black26,
-                      )
-                    ],
+                  width: widthApp * 0.4,
+                  height: 90,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    boxShadow: shadow,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            width: 80,
+                            child: Text(
+                              "Pengajuan Surat",
+                              softWrap: true,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16),
+                            )),
+                        Icon(
+                          Icons.file_copy,
+                          size: 50,
+                          color: Colors.black26,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )

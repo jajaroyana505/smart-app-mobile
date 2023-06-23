@@ -26,8 +26,14 @@ class Surat_page extends StatelessWidget {
         appBar: AppBar(
           // leading: Icon(Icons.auto_awesome_mosaic_rounded),
           // centerTitle: true,
+          backgroundColor: Colors.white,
+
           title: Text("Pengajuan Surat"),
-          bottom: TabBar(tabs: myTab),
+          bottom: TabBar(
+            tabs: myTab,
+            indicatorColor: Colors.black54,
+            // labelColor: Colors.green,
+          ),
         ),
         body: TabBarView(
           children: [
@@ -74,6 +80,11 @@ class Surat_page extends StatelessWidget {
             ),
             ListView()
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: null,
+          tooltip: 'Increment',
+          child: const Icon(Icons.add),
         ),
       ),
     );
