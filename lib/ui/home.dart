@@ -17,6 +17,7 @@ class _HomeState extends State<Home> {
     final paddingTop = MediaQuery.of(context).padding.top;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text("Tetangga"),
       ),
       body: Row(

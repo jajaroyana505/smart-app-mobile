@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_app/ui/surat.dart';
+import 'package:smart_app/ui/penduduk_page.dart';
+import 'package:smart_app/ui/surat_page.dart';
+
 import 'sidebar.dart';
 
 class Home_page extends StatefulWidget {
@@ -83,10 +85,10 @@ class _Home_pageState extends State<Home_page> {
             children: [
               TextButton(
                 onPressed: () {
-                  // Navigator.of(context)
-                  //     .push(MaterialPageRoute(builder: (context) {
-                  //   return Surat_page();
-                  // }));
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return Penduduk_Page();
+                  }));
                 },
                 child: Container(
                   width: widthApp * 0.4,

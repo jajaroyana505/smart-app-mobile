@@ -50,17 +50,6 @@ class Surat_page extends StatelessWidget {
                     trailing: Text("01.00"),
                   ),
                 ),
-                Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          'https://pbs.twimg.com/profile_images/1588253672621969408/ieA3sRkN_400x400.jpg'),
-                    ),
-                    title: Text("Muhammad Jaja Royana"),
-                    subtitle: Text("Kp. Cijalu RT.04/RW.04 No.8 - Cikampek"),
-                    // trailing: Text("01.00 WIB"),
-                  ),
-                ),
               ],
             ),
             ListView(
