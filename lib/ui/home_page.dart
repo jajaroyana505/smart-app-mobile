@@ -33,9 +33,8 @@ class _Home_pageState extends State<Home_page> {
     return Scaffold(
       drawer: Sidebar(),
       appBar: AppBar(
-        // title: Text("Home Page"),
-        backgroundColor: Colors.white,
-      ),
+          // title: Text("Home Page"),
+          ),
       body: ListView(
         padding: EdgeInsets.all(20),
         children: [

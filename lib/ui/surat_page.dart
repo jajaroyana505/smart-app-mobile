@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_app/ui/surat_form.dart';
 
 class Surat_page extends StatelessWidget {
   // const Surat_pgae({super.key});
@@ -26,7 +27,6 @@ class Surat_page extends StatelessWidget {
         appBar: AppBar(
           // leading: Icon(Icons.auto_awesome_mosaic_rounded),
           // centerTitle: true,
-          backgroundColor: Colors.white,
           title: Text("Pengajuan Surat"),
           bottom: TabBar(
             tabs: myTab,
@@ -76,7 +76,11 @@ class Surat_page extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.green,
-          onPressed: null,
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+              return Form_surat();
+            }));
+          },
           tooltip: 'Increment',
           child: const Icon(
             Icons.add,

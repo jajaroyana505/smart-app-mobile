@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_app/ui/home_page.dart';
+import 'package:smart_app/ui/surat_form.dart';
 import 'package:smart_app/ui/surat_page.dart';
 import 'ui/home.dart';
 
@@ -16,10 +17,29 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
+          colorScheme: ColorScheme(
+              brightness: Brightness.light,
+              primary: Colors.green,
+              onPrimary: Colors.white,
+              secondary: Colors.grey,
+              onSecondary: Colors.white,
+              error: Colors.red,
+              onError: Colors.red,
+              background: Colors.green,
+              onBackground: Colors.green,
+              surface: Colors.green,
+              onSurface: Colors.green),
           // primarySwatch: Colors.blue,
-          primarySwatch: Colors.grey,
+
           fontFamily: 'Roboto',
+          appBarTheme: AppBarTheme(
+            titleTextStyle: TextStyle(color: Colors.green),
+            color: Colors.white,
+            iconTheme: IconThemeData(color: Colors.green),
+            elevation: 0,
+          ),
         ),
+        // home: Form_surat());
         home: Home_page());
   }
 }
