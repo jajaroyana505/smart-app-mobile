@@ -27,11 +27,15 @@ class Surat_page extends StatelessWidget {
           // leading: Icon(Icons.auto_awesome_mosaic_rounded),
           // centerTitle: true,
           backgroundColor: Colors.white,
-
           title: Text("Pengajuan Surat"),
           bottom: TabBar(
             tabs: myTab,
-            indicatorColor: Colors.black54,
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.green,
+            indicatorColor: Colors.green,
+            indicator: BoxDecoration(
+              color: Colors.green,
+            ),
             // labelColor: Colors.green,
           ),
         ),
@@ -71,9 +75,13 @@ class Surat_page extends StatelessWidget {
           ],
         ),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.green,
           onPressed: null,
           tooltip: 'Increment',
-          child: const Icon(Icons.add),
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
         ),
       ),
     );

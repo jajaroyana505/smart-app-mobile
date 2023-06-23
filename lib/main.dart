@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_app/ui/home_page.dart';
-import 'package:smart_app/ui/surat.dart';
+import 'package:smart_app/ui/surat_page.dart';
 import 'ui/home.dart';
 
 void main() {
