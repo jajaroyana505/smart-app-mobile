@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_app/ui/surat.dart';
 import 'sidebar.dart';
 
 class Home_page extends StatefulWidget {
@@ -109,7 +110,7 @@ class _Home_pageState extends State<Home_page> {
                         Icons.people,
                         size: 50,
                         color: Colors.black26,
-                      )
+                      ),
                     ],
                   ),
                 ),
