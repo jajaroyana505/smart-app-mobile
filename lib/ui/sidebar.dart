@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smart_app/ui/login.dart';
+import '../helper/user_info.dart';
 
 class Sidebar extends StatelessWidget {
   const Sidebar({Key? key}) : super(key: key);
@@ -15,13 +17,13 @@ class Sidebar extends StatelessWidget {
                     'https://cdn.pixabay.com/photo/2017/06/18/18/01/potrait-2416628_1280.jpg'),
               ),
               accountName: Text(
-                "Muhammad Jaja Royana",
+                USERNAME,
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
                     fontSize: 16),
               ),
-              accountEmail: Text("NIK : 3213050103020001",
+              accountEmail: Text("NIK : " + NIK,
                   style: TextStyle(
                     color: Colors.white,
                   ))),
@@ -38,7 +40,13 @@ class Sidebar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.logout_rounded),
             title: Text("Keluar"),
-            onTap: () {},
+            onTap: () {
+              UserInfo().logout();
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => Login()),
+                  (Route<dynamic> route) => false);
+            },
           )
         ],
       ),
