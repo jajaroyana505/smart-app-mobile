@@ -83,7 +83,7 @@ class _Form_suratState extends State<Form_surat> {
                             jenis: _jSurat,
                             keperluan: _keperluanController.text,
                             tanggal: "2001-01-01",
-                            status: "0");
+                            status: "1");
                         await Surat_services().simpan(surat).then((value) {
                           Navigator.pushReplacement(
                               context,

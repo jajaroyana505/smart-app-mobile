@@ -9,10 +9,13 @@ class Surat_services {
     Surat_Model result = Surat_Model.fromJson(response.data);
     return result;
   }
+
+  Future<List<Surat_Model>> dataSurat() async {
+    final Response response = await ApiClient().get('Surat');
+    final List data = response.data as List;
+    List<Surat_Model> result =
+        data.map((json) => Surat_Model.fromJson(json)).toList();
+    // print(result);
+    return result;
+  }
 }
-//   Future<Poli> simpan(Poli poli) async {
-//     var data = poli.toJson();
-//     final Response response = await ApiClient().post('poli', data);
-//     Poli result = Poli.fromJson(response.data);
-//     return result;
-//   }

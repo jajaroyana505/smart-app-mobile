@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 
 final Dio dio = Dio(BaseOptions(
+    // baseUrl: 'https://0039-180-251-224-57.ngrok-free.app/smart-app/api/',
     baseUrl: 'https://649780309543ce0f49e14382.mockapi.io/',
     connectTimeout: 50000,
     receiveTimeout: 30000));

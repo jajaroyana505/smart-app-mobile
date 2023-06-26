@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:smart_app/ui/surat_form.dart';
+import 'package:smart_app/services/surat_service.dart';
+import 'package:smart_app/ui/surat_proses_page.dart';
+import 'package:smart_app/ui/surat_selesai_page.dart';
+import 'package:smart_app/ui/surat_semua.dart';
+import '../model/surat_model.dart';
+import './surat_item.dart';
 
 class Surat_page extends StatelessWidget {
   // const Surat_pgae({super.key});
+  Stream<List<Surat_Model>> dataSurat() async* {
+    List<Surat_Model> data = await Surat_services().dataSurat();
+    yield data;
+  }
 
   List<Tab> myTab = [
     Tab(
@@ -41,37 +51,9 @@ class Surat_page extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            ListView(
-              children: [
-                Card(
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.description_outlined,
-                      size: 50,
-                    ),
-                    title: Text("Surat Pengantar"),
-                    subtitle: Text("satatus : Menunggu"),
-                    trailing: Text("01.00"),
-                  ),
-                ),
-              ],
-            ),
-            ListView(
-              children: [
-                Card(
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.description_outlined,
-                      size: 50,
-                    ),
-                    title: Text("Surat Pengantar"),
-                    subtitle: Text("satatus : Menunggu"),
-                    trailing: Text("01.00"),
-                  ),
-                ),
-              ],
-            ),
-            ListView()
+            Semua_surat(),
+            Surat_proses_page(),
+            Surat_selesai_page(),
           ],
         ),
         floatingActionButton: FloatingActionButton(

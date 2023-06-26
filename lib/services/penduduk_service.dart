@@ -9,6 +9,7 @@ class Penduduk_services {
     final List data = response.data as List;
     List<Penduduk_Model> result =
         data.map((json) => Penduduk_Model.fromJson(json)).toList();
+    // print(result);
     return result;
   }
 }
