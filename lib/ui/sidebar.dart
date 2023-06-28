@@ -17,13 +17,13 @@ class Sidebar extends StatelessWidget {
                     'https://cdn.pixabay.com/photo/2017/06/18/18/01/potrait-2416628_1280.jpg'),
               ),
               accountName: Text(
-                USERNAME,
+                UserInfo().getNama().toString(),
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
                     fontSize: 16),
               ),
-              accountEmail: Text("NIK : " + NIK,
+              accountEmail: Text("NIK : ",
                   style: TextStyle(
                     color: Colors.white,
                   ))),

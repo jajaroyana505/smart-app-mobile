@@ -12,11 +12,11 @@ class Penduduk_Model {
   factory Penduduk_Model.fromJson(Map<String, dynamic> json) => Penduduk_Model(
         nama: json["nama"],
         alamat: json['alamat'],
-        // foto: json['foto']
+        foto: json['foto'],
       );
   Map<String, dynamic> toJson() => {
         "nama": nama,
         "alamat": alamat,
-        // "foto": foto,
+        "foto": foto,
       };
 }
