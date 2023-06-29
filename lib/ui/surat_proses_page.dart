@@ -1,8 +1,7 @@
-import 'dart:js_util';
-
 import 'package:flutter/material.dart';
 import 'package:smart_app/ui/home_page.dart';
 import 'package:smart_app/ui/surat_page.dart';
+import 'package:smart_app/ui/surat_screen.dart';
 import '../model/surat_model.dart';
 import '../services/surat_service.dart';
 
@@ -41,6 +40,8 @@ class Surat_proses_page extends StatelessWidget {
   }
 }
 
+// Clas Template item Surat
+
 class surat_Item extends StatelessWidget {
   final Surat_Model surat;
   const surat_Item({super.key, required this.surat});
@@ -73,47 +74,7 @@ class surat_Item extends StatelessWidget {
                   ))
             ],
           ),
-          trailing: IconButton(
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('Konfirmasi'),
-                      content: Text(
-                          'Apakah Anda yakin ingin membatalkan dan menghapus pengajuan dengan id ?' +
-                              surat.id.toString()),
-                      actions: <Widget>[
-                        ElevatedButton(
-                          child: Text('Batal'),
-                          onPressed: () {
-                            // Aksi yang akan dilakukan saat tombol "Batal" ditekan
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                        ElevatedButton(
-                          child: Text('Ya'),
-                          onPressed: () {
-                            // Aksi yang akan dilakukan saat tombol "Ya" ditekan
-                            Surat_services()
-                                .hapus(surat.id.toString())
-                                .then((value) {
-                              Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: (context) {
-                                return Home_page();
-                              }));
-                            });
-
-                            Navigator.of(context).pop();
-                            // Tambahkan logika atau tindakan yang ingin Anda lakukan setelah konfirmasi
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-              icon: Icon(Icons.delete)),
+          trailing: tombolHapus(context),
         ),
       );
     } else {
@@ -122,5 +83,48 @@ class surat_Item extends StatelessWidget {
         height: 0,
       );
     }
+  }
+
+  // Method untuk menampikan Tombol hapus
+  IconButton tombolHapus(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text('Konfirmasi'),
+                content: Text(
+                    'Apakah Anda yakin ingin membatalkan dan menghapus pengajuan dengan id ?' +
+                        surat.id.toString()),
+                actions: <Widget>[
+                  ElevatedButton(
+                    child: Text('Batal'),
+                    onPressed: () {
+                      // Aksi yang akan dilakukan saat tombol "Batal" ditekan
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ElevatedButton(
+                    child: Text('Ya'),
+                    onPressed: () {
+                      // Aksi yang akan dilakukan saat tombol "Ya" ditekan
+                      Surat_services().hapus(surat.id.toString()).then((value) {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return Surat_screen();
+                        }));
+                      });
+
+                      Navigator.of(context).pop();
+                      // Tambahkan logika atau tindakan yang ingin Anda lakukan setelah konfirmasi
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        icon: Icon(Icons.delete));
   }
 }

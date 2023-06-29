@@ -20,7 +20,7 @@ class Surat_services {
   }
 
   Future<Surat_Model> hapus(String id) async {
-    final Response response = await ApiClient().delete('poli/${id}');
+    final Response response = await ApiClient().delete('Surat/${id}');
     Surat_Model result = Surat_Model.fromJson(response.data);
     return result;
   }
