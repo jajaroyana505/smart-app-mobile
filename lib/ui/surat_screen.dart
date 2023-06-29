@@ -7,7 +7,7 @@ import 'package:smart_app/ui/surat_semua.dart';
 import '../model/surat_model.dart';
 import './surat_item.dart';
 
-class Surat_page extends StatelessWidget {
+class Surat_screen extends StatelessWidget {
   // const Surat_pgae({super.key});
   Stream<List<Surat_Model>> dataSurat() async* {
     List<Surat_Model> data = await Surat_services().dataSurat();

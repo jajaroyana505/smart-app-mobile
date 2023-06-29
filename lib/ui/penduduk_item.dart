@@ -7,12 +7,14 @@ class penduduk_Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage('${penduduk.foto}'),
+    return Card(
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundImage: NetworkImage('${penduduk.foto}'),
+        ),
+        title: Text("${penduduk.nama}"),
+        subtitle: Text("${penduduk.alamat}"),
       ),
-      title: Text("${penduduk.nama}"),
-      subtitle: Text("${penduduk.alamat}"),
     );
   }
 }

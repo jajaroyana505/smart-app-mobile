@@ -3,7 +3,7 @@ import 'package:smart_app/ui/home_page.dart';
 import './helper/user_info.dart';
 import './ui/login.dart';
 import 'package:smart_app/ui/surat_form.dart';
-import 'package:smart_app/ui/surat_page.dart';
+import 'package:smart_app/ui/surat_screen.dart';
 import 'ui/home.dart';
 
 // void main() {
@@ -13,7 +13,9 @@ import 'ui/home.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   var token = await UserInfo().getToken();
+  var nama = await UserInfo().getNama();
   print(token);
+  print(nama);
   runApp(MaterialApp(
     title: "Smart App",
     theme: ThemeData(

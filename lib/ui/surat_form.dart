@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_app/ui/surat_page.dart';
+import 'package:smart_app/ui/surat_screen.dart';
 import '../model/surat_model.dart';
 import '../services/surat_service.dart';
 
@@ -88,7 +88,7 @@ class _Form_suratState extends State<Form_surat> {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Surat_page()));
+                                  builder: (context) => Surat_screen()));
                         });
                       },
                       child: Text('Submit'),

@@ -1,9 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:smart_app/model/user_model.dart';
+import 'package:smart_app/services/user_service.dart';
 import 'package:smart_app/ui/login.dart';
 import '../helper/user_info.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Sidebar extends StatelessWidget {
-  const Sidebar({Key? key}) : super(key: key);
+class Sidebar extends StatefulWidget {
+  const Sidebar({super.key});
+
+  @override
+  State<Sidebar> createState() => _SidebarState();
+}
+
+class _SidebarState extends State<Sidebar> {
+  var user;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  void fetchData() async {
+    User_model userData = await User_services().getDataFromSharedPref();
+    setState(() {
+      user = userData;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -17,7 +41,7 @@ class Sidebar extends StatelessWidget {
                     'https://cdn.pixabay.com/photo/2017/06/18/18/01/potrait-2416628_1280.jpg'),
               ),
               accountName: Text(
-                UserInfo().getNama().toString(),
+                UserInfo().getNama.toString(),
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
@@ -51,5 +75,6 @@ class Sidebar extends StatelessWidget {
         ],
       ),
     );
+    ;
   }
 }

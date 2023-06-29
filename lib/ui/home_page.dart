@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_app/ui/penduduk_page.dart';
-import 'package:smart_app/ui/surat_page.dart';
+import 'package:smart_app/ui/surat_screen.dart';
 
 import 'sidebar.dart';
 
@@ -31,7 +31,7 @@ class _Home_pageState extends State<Home_page> {
     final widthApp = MediaQuery.of(context).size.width;
     final heightApp = MediaQuery.of(context).size.height;
     return Scaffold(
-      drawer: Sidebar(),
+      drawer: const Sidebar(),
       appBar: AppBar(
           // title: Text("Home Page"),
           ),
@@ -128,7 +128,7 @@ class _Home_pageState extends State<Home_page> {
                 onPressed: () {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) {
-                    return Surat_page();
+                    return Surat_screen();
                   }));
                 },
                 child: Container(
