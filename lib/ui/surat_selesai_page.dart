@@ -71,7 +71,8 @@ class surat_Item extends StatelessWidget {
                   ))
             ],
           ),
-          trailing: Text("01.00"),
+          trailing:
+              IconButton(onPressed: () {}, icon: Icon(Icons.file_download)),
         ),
       );
     } else {

@@ -1,4 +1,8 @@
+import 'dart:js_util';
+
 import 'package:flutter/material.dart';
+import 'package:smart_app/ui/home_page.dart';
+import 'package:smart_app/ui/surat_page.dart';
 import '../model/surat_model.dart';
 import '../services/surat_service.dart';
 
@@ -18,13 +22,13 @@ class Surat_proses_page extends StatelessWidget {
           return Text(snapshot.error.toString());
         }
         if (snapshot.connectionState != ConnectionState.done) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
         if (!snapshot.hasData &&
             snapshot.connectionState == ConnectionState.done) {
-          return Text('Data Kosong');
+          return const Text('Data Kosong');
         }
         return ListView.builder(
           itemCount: snapshot.data.length,
@@ -45,21 +49,21 @@ class surat_Item extends StatelessWidget {
   Widget build(BuildContext context) {
     if (surat.status == "1") {
       return Card(
-        margin: EdgeInsets.only(top: 10),
+        margin: const EdgeInsets.only(top: 10),
         child: ListTile(
-          leading: Icon(
+          leading: const Icon(
             Icons.description_outlined,
             size: 50,
           ),
           title: Container(
-              margin: EdgeInsets.only(top: 5, bottom: 5),
+              margin: const EdgeInsets.only(top: 5, bottom: 5),
               child: Text("${surat.jenis}")),
           subtitle: Row(
             children: [
               Text("status "),
               Container(
-                  padding:
-                      EdgeInsets.only(left: 5, right: 5, bottom: 2, top: 2),
+                  padding: const EdgeInsets.only(
+                      left: 5, right: 5, bottom: 2, top: 2),
                   decoration: BoxDecoration(
                       color: Colors.amber,
                       borderRadius: BorderRadius.all(Radius.circular(2))),
@@ -69,7 +73,47 @@ class surat_Item extends StatelessWidget {
                   ))
             ],
           ),
-          trailing: Text("01.00"),
+          trailing: IconButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('Konfirmasi'),
+                      content: Text(
+                          'Apakah Anda yakin ingin membatalkan dan menghapus pengajuan dengan id ?' +
+                              surat.id.toString()),
+                      actions: <Widget>[
+                        ElevatedButton(
+                          child: Text('Batal'),
+                          onPressed: () {
+                            // Aksi yang akan dilakukan saat tombol "Batal" ditekan
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        ElevatedButton(
+                          child: Text('Ya'),
+                          onPressed: () {
+                            // Aksi yang akan dilakukan saat tombol "Ya" ditekan
+                            Surat_services()
+                                .hapus(surat.id.toString())
+                                .then((value) {
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (context) {
+                                return Home_page();
+                              }));
+                            });
+
+                            Navigator.of(context).pop();
+                            // Tambahkan logika atau tindakan yang ingin Anda lakukan setelah konfirmasi
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              icon: Icon(Icons.delete)),
         ),
       );
     } else {
